@@ -1,9 +1,12 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 import useTimer from './useTimer';
+import useRandomSquare from './useRandomSquare';
+import { range } from 'ramda';
 import './App.css';
 
 function App() {
   const [score, setScore] = useState(0);
+  const square = useRandomSquare();
   const counter = useTimer(60);
 
   return (
@@ -12,15 +15,12 @@ function App() {
       <div className="App-score">{score}</div>
       <div className="App-time">{counter}</div>
       <div className="App-grid">
-        <div className="App-square"></div>
-        <div className="App-square App-square--mole"></div>
-        <div className="App-square"></div>
-        <div className="App-square"></div>
-        <div className="App-square"></div>
-        <div className="App-square"></div>
-        <div className="App-square"></div>
-        <div className="App-square"></div>
-        <div className="App-square"></div>
+        {range(0, 9).map((key) => (
+          <div
+            key={key}
+            className={`App-square ${key === square && 'App-square--mole'}`}
+          ></div>
+        ))}
       </div>
     </div>
   );
