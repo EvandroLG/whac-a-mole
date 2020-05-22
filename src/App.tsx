@@ -9,8 +9,19 @@ function App() {
   return (
     <div className="App">
       <h1>Whack-A-Mole</h1>
-      <div className="score">{score}</div>
-      <div className="time">{counter}</div>
+      <div className="App-score">{score}</div>
+      <div className="App-time">{counter}</div>
+      <div className="App-grid">
+        <div className="App-square"></div>
+        <div className="App-square App-square--mole"></div>
+        <div className="App-square"></div>
+        <div className="App-square"></div>
+        <div className="App-square"></div>
+        <div className="App-square"></div>
+        <div className="App-square"></div>
+        <div className="App-square"></div>
+        <div className="App-square"></div>
+      </div>
     </div>
   );
 }
