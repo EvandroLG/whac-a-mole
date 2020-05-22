@@ -1,24 +1,16 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, {useState} from 'react';
+import useTimer from './useTimer';
 import './App.css';
 
 function App() {
+  const [score, setScore] = useState(0);
+  const counter = useTimer(60);
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h1>Whack-A-Mole</h1>
+      <div className="score">{score}</div>
+      <div className="time">{counter}</div>
     </div>
   );
 }
