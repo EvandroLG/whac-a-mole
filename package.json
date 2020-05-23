@@ -11,6 +11,7 @@
     "@types/ramda": "^0.27.6",
     "@types/react": "^16.9.0",
     "@types/react-dom": "^16.9.0",
+    "gh-pages": "^2.2.0",
     "prettier": "^2.0.5",
     "ramda": "^0.27.0",
     "react": "^16.13.1",
@@ -22,7 +23,9 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -33,6 +36,7 @@
     "singleQuote": true,
     "trailingComma": "es5"
   },
+  "homepage": "http://evandrolg.github.io/whac-a-mole",
   "browserslist": {
     "production": [
       ">0.2%",
