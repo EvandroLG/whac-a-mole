@@ -28,22 +28,32 @@ const App = () => {
 
   return (
     <div className="App">
-      <h1>Whack-A-Mole</h1>
+      <h1 className="App-title">Whack-A-Mole</h1>
+
       {isOver(counter) ? (
         <>
           <h2>Game over</h2>
-          <div className="App-score">{score}</div>
-          <button type="button" onClick={start}>
+          <div className="App-score">
+            <strong>Final score: </strong>
+            {score}
+          </div>
+          <button type="button" className="App-button" onClick={start}>
             Restart
           </button>
         </>
       ) : (
         <>
-          <button type="button" onClick={start}>
+          <button type="button" className="App-button" onClick={start}>
             Start / Restart
           </button>
-          <div className="App-score">{score}</div>
-          <div className="App-time">{counter}</div>
+          <div className="App-score">
+            <strong>Score: </strong>
+            {score}
+          </div>
+          <div className="App-time">
+            <strong>Time: </strong>
+            {counter}
+          </div>
           <div className="App-grid">
             {range(0, 9).map((key) => (
               <div

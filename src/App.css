@@ -2,14 +2,43 @@
   text-align: center;
 }
 
+.App-button {
+  border: none;
+  border-radius: 5px;
+  margin-bottom: 1rem;
+  padding: 1rem 2rem;
+  background: #0069ed;
+  color: #FFF;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 250ms ease-in-out;
+}
+
+.App-button:hover, .App-button:focus {
+  background: #0053ba;
+}
+
+.App-button:focus {
+    outline: 1px solid #fff;
+    outline-offset: -4px;
+}
+
+.App-button:active {
+    transform: scale(0.99);
+}
+
+.App-title {
+  color: #1c9737;
+}
+
 .App-grid {
   display: flex;
-  flex-flow: row wrap;
-  justify-content: center;
-  align-center: center;
-  width: 618px;
-  height: 618px;
-  margin: 0 auto;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  width: 620px;
+  height: 620px;
+  margin: 1rem auto 0;
 }
 
 .App-square {
