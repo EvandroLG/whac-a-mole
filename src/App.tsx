@@ -6,26 +6,24 @@ import './App.css';
 
 const isOver = (counter: number) => counter === 0;
 
-function App() {
+const App = () => {
   const [score, setScore] = useState(0);
-  const [square, stopRandomSquare, startRandomSquare] = useRandomSquare();
-  const [counter, restartCounter] = useTimer(60);
+  const [square, startRandomSquare, stopRandomSquare] = useRandomSquare();
+  const [counter, startCounter] = useTimer(60);
 
   const updateScore = useCallback(
     (key) => key === square && setScore(score + 1),
     [square, score]
   );
 
-  const restart = useCallback(() => {
-    restartCounter();
+  const start = useCallback(() => {
+    startCounter();
     startRandomSquare();
     setScore(0);
-  }, [restartCounter, startRandomSquare]);
+  }, [startCounter, startRandomSquare]);
 
   useEffect(() => {
-    if (isOver(counter)) {
-      stopRandomSquare();
-    }
+    isOver(counter) && stopRandomSquare();
   }, [counter, stopRandomSquare]);
 
   return (
@@ -35,12 +33,15 @@ function App() {
         <>
           <h2>Game over</h2>
           <div className="App-score">{score}</div>
-          <button type="button" onClick={restart}>
+          <button type="button" onClick={start}>
             Restart
           </button>
         </>
       ) : (
         <>
+          <button type="button" onClick={start}>
+            Start / Restart
+          </button>
           <div className="App-score">{score}</div>
           <div className="App-time">{counter}</div>
           <div className="App-grid">
@@ -56,6 +57,6 @@ function App() {
       )}
     </div>
   );
-}
+};
 
 export default App;

@@ -2,19 +2,30 @@ import { useState, useEffect, useCallback } from 'react';
 
 const useTimer = (startTime: number) => {
   const [counter, setCounter] = useState(startTime);
-  const restartCounter = useCallback(() => {
+  const [start, setStart] = useState(false);
+  const startCounter = useCallback(() => {
+    setStart(true);
     setCounter(startTime);
   }, [startTime]);
 
   useEffect(() => {
+    if (!start) {
+      return;
+    }
+
     const timer = setInterval(() => {
-      counter === 0 ? clearInterval(timer) : setCounter(counter - 1);
+      if (counter === 0) {
+        clearInterval(timer);
+        setStart(false);
+      } else {
+        setCounter(counter - 1);
+      }
     }, 1000);
 
     return () => clearInterval(timer);
-  }, [counter, startTime]);
+  }, [counter, startTime, start]);
 
-  return [counter, restartCounter] as const;
+  return [counter, startCounter] as const;
 };
 
 export default useTimer;
