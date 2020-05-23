@@ -12,11 +12,13 @@ const useRandomSquare = () => {
   }, []);
 
   const startRandomSquare = useCallback(() => {
+    stopRandomSquare();
+
     interval.current = window.setInterval(
       () => setSquare(getRandomSquare()),
       1000
     );
-  }, []);
+  }, [stopRandomSquare]);
 
   return [square, startRandomSquare, stopRandomSquare] as const;
 };
