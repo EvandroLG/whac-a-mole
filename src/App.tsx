@@ -37,7 +37,11 @@ const App = () => {
             <strong>Final score: </strong>
             {score}
           </div>
-          <button type="button" className="App-button" onClick={start}>
+          <button
+            type="button"
+            className="App-button App-button--restart"
+            onClick={start}
+          >
             Restart
           </button>
         </>

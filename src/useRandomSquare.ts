@@ -16,7 +16,7 @@ const useRandomSquare = () => {
 
     interval.current = window.setInterval(
       () => setSquare(getRandomSquare()),
-      1000
+      800
     );
   }, [stopRandomSquare]);
 

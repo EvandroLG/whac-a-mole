@@ -27,6 +27,10 @@
     transform: scale(0.99);
 }
 
+.App-button--restart {
+  margin-top: 1rem;
+}
+
 .App-title {
   color: #1c9737;
 }
