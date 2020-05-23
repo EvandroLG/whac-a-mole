@@ -1,0 +1,23 @@
+{
+  "files": {
+    "main.css": "/whac-a-mole/static/css/main.3e055360.chunk.css",
+    "main.js": "/whac-a-mole/static/js/main.e14695d9.chunk.js",
+    "main.js.map": "/whac-a-mole/static/js/main.e14695d9.chunk.js.map",
+    "runtime-main.js": "/whac-a-mole/static/js/runtime-main.d3cba077.js",
+    "runtime-main.js.map": "/whac-a-mole/static/js/runtime-main.d3cba077.js.map",
+    "static/js/2.1a398855.chunk.js": "/whac-a-mole/static/js/2.1a398855.chunk.js",
+    "static/js/2.1a398855.chunk.js.map": "/whac-a-mole/static/js/2.1a398855.chunk.js.map",
+    "index.html": "/whac-a-mole/index.html",
+    "precache-manifest.adb180064bda78d28a52bee4e68878b5.js": "/whac-a-mole/precache-manifest.adb180064bda78d28a52bee4e68878b5.js",
+    "service-worker.js": "/whac-a-mole/service-worker.js",
+    "static/css/main.3e055360.chunk.css.map": "/whac-a-mole/static/css/main.3e055360.chunk.css.map",
+    "static/js/2.1a398855.chunk.js.LICENSE.txt": "/whac-a-mole/static/js/2.1a398855.chunk.js.LICENSE.txt",
+    "static/media/App.css": "/whac-a-mole/static/media/mole.8b58ae61.png"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.d3cba077.js",
+    "static/js/2.1a398855.chunk.js",
+    "static/css/main.3e055360.chunk.css",
+    "static/js/main.e14695d9.chunk.js"
+  ]
+}
