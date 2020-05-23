@@ -8,12 +8,19 @@ const isOver = (counter: number) => counter === 0;
 
 function App() {
   const [score, setScore] = useState(0);
-  const [square, stopRandomSquare] = useRandomSquare();
-  const counter = useTimer(60);
+  const [square, stopRandomSquare, startRandomSquare] = useRandomSquare();
+  const [counter, restartCounter] = useTimer(60);
+
   const updateScore = useCallback(
     (key) => key === square && setScore(score + 1),
     [square, score]
   );
+
+  const restart = useCallback(() => {
+    restartCounter();
+    startRandomSquare();
+    setScore(0);
+  }, [restartCounter, startRandomSquare]);
 
   useEffect(() => {
     if (isOver(counter)) {
@@ -28,6 +35,9 @@ function App() {
         <>
           <h2>Game over</h2>
           <div className="App-score">{score}</div>
+          <button type="button" onClick={restart}>
+            Restart
+          </button>
         </>
       ) : (
         <>

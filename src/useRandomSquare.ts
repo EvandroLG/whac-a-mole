@@ -6,18 +6,23 @@ const getRandomSquare = compose(Math.floor, () => Math.random() * 9);
 const useRandomSquare = () => {
   const [square, setSquare] = useState(getRandomSquare());
   const interval = useRef(0);
-  const stopRandomSquare: () => void = useCallback(() => {
+
+  const stopRandomSquare = useCallback(() => {
     clearInterval(interval.current);
   }, []);
 
-  useEffect(() => {
+  const startRandomSquare = useCallback(() => {
     interval.current = window.setInterval(
-      () => setSquare(getRandomSquare()),
+      () => setSquare(getRandomSquare),
       1000
     );
   }, []);
 
-  return [square, stopRandomSquare] as const;
+  useEffect(() => {
+    startRandomSquare();
+  }, [startRandomSquare]);
+
+  return [square, stopRandomSquare, startRandomSquare] as const;
 };
 
 export default useRandomSquare;

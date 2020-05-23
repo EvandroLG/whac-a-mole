@@ -1,7 +1,10 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 
 const useTimer = (startTime: number) => {
   const [counter, setCounter] = useState(startTime);
+  const restartCounter = useCallback(() => {
+    setCounter(startTime);
+  }, [startTime]);
 
   useEffect(() => {
     const timer = setInterval(() => {
@@ -11,7 +14,7 @@ const useTimer = (startTime: number) => {
     return () => clearInterval(timer);
   }, [counter, startTime]);
 
-  return counter;
+  return [counter, restartCounter] as const;
 };
 
 export default useTimer;
